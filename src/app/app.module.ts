@@ -7,13 +7,15 @@ import {AppComponent} from './app.component';
 import {NewsComponent} from './news/news.component';
 import {LoginComponent} from './login/login.component';
 import {UserDetailsComponent} from './user-details/user-details.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NewsComponent,
         LoginComponent,
-        UserDetailsComponent
+        UserDetailsComponent,
+        RegistrationComponent
     ],
     imports: [
         BrowserModule,
