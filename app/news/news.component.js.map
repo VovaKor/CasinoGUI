@@ -1,0 +1,1 @@
+{"version":3,"file":"news.component.js","sourceRoot":"","sources":["news.component.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,sCAAgD;AAOhD,IAAa,aAAa;IAEtB;IACA,CAAC;IAED,gCAAQ,GAAR;IACA,CAAC;IACL,oBAAC;AAAD,CAAC,AAPD,IAOC;AAPY,aAAa;IALzB,gBAAS,CAAC;QACP,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,WAAW,EAAE,uBAAuB;QACpC,SAAS,EAAE,CAAC,sBAAsB,CAAC;KACtC,CAAC;;GACW,aAAa,CAOzB;AAPY,sCAAa"}
