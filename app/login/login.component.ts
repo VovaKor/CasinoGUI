@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
         // Need to finde how fix this part. After first login if you link to another page, you need again login
         this.authenticationService.logout();
 
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        // get return url from route parameters or default to '/news'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/news';
     }
 
     login() {
