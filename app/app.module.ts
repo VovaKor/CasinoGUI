@@ -13,7 +13,6 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import {NewsComponent} from "./news/index";
 import {UserDetailsComponent} from "./user-details/user-details.component";
-import { TransactionsModule } from './transactions/transactions.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
@@ -22,8 +21,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         BrowserAnimationsModule,
         FormsModule,
         HttpModule,
-        routing,
-        TransactionsModule
+        routing
     ],
     declarations: [
         AppComponent,

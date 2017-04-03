@@ -54,6 +54,7 @@ export class TransactionService {
         let headers = new Headers();
         headers.append('X-Authorization', JSON.parse(localStorage.getItem('currentUser')).token);
         headers.set('content-type', 'application/json');
+        headers.set('Accept', 'application/json');
         return headers;
     }
 }

@@ -19,7 +19,6 @@ var index_4 = require("./login/index");
 var index_5 = require("./register/index");
 var index_6 = require("./news/index");
 var user_details_component_1 = require("./user-details/user-details.component");
-var transactions_module_1 = require("./transactions/transactions.module");
 var animations_1 = require("@angular/platform-browser/animations");
 var AppModule = (function () {
     function AppModule() {
@@ -33,8 +32,7 @@ AppModule = __decorate([
             animations_1.BrowserAnimationsModule,
             forms_1.FormsModule,
             http_1.HttpModule,
-            app_routing_1.routing,
-            transactions_module_1.TransactionsModule
+            app_routing_1.routing
         ],
         declarations: [
             app_component_1.AppComponent,
