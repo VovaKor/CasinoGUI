@@ -4,10 +4,10 @@ li {
     font-weight: normal;
     line-height: 40px;
     font-family: 'Orienta', sans-serif;
-    cursor: pointer;
     list-style-type: none;
     font-size: 22px;
-
+    cursor: pointer;
+    width: 200px;
 }
 
 .automat > li {
