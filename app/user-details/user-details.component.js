@@ -10,10 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var user_service_1 = require("../_services/user.service");
 var UserDetailsComponent = (function () {
-    function UserDetailsComponent() {
+    function UserDetailsComponent(userServise) {
+        this.userServise = userServise;
     }
     UserDetailsComponent.prototype.ngOnInit = function () {
+        var apiReply = JSON.parse(localStorage.getItem("currentUser"));
+        this.user = apiReply.user;
     };
     return UserDetailsComponent;
 }());
@@ -23,7 +27,7 @@ UserDetailsComponent = __decorate([
         templateUrl: './user-details.component.html',
         styleUrls: ['./user-details.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [user_service_1.UserService])
 ], UserDetailsComponent);
 exports.UserDetailsComponent = UserDetailsComponent;
 //# sourceMappingURL=user-details.component.js.map

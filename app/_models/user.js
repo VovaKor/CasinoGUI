@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var User = (function () {
     function User() {
-        this.balance = '0.00';
+        this.balance = '100.00';
     }
     return User;
 }());

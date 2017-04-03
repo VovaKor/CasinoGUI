@@ -1,3 +1,63 @@
-<p>
-  user-details works!
-</p>
+<table class="simple-little-table" cellspacing='0'>
+    <tr>
+        <th>User information</th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>Login</td>
+        <td>{{user?.loginId}}</td>
+    </tr>
+    <tr>
+        <td>Password Hash</td>
+        <td>{{user?.password}}</td>
+    </tr>
+    <tr>
+        <td>Last login day</td>
+        <td>{{user?.lastLoginDate}}</td>
+    </tr>
+
+    <tr>
+        <td>Balance</td>
+        <td>{{user?.balance}}</td>
+    </tr>
+
+    <tr>
+        <td>First name</td>
+        <td>{{user?.userData?.name}}</td>
+    </tr>
+
+    <tr>
+        <td>Last name</td>
+        <td>{{user?.userData?.surname}}</td>
+    </tr>
+    <tr>
+        <td>Patronymic</td>
+        <td>{{user?.userData?.patronymic}}</td>
+    </tr>
+    <tr>
+        <td>Birth Day</td>
+        <td>{{user?.userData?.birthDay}}</td>
+    </tr>
+    <tr>
+        <td>Passport</td>
+        <td>{{user?.userData?.passport}}</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>{{user?.userData?.gender}}</td>
+    </tr>
+    <tr>
+        <td>Home address</td>
+        <td>{{user?.userData?.address}}</td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>{{user?.userData?.city}}</td>
+    </tr>
+    <tr>
+        <td>Country</td>
+        <td>{{user?.userData?.country}}</td>
+    </tr>
+
+</table>

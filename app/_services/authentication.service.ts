@@ -15,6 +15,7 @@ export class AuthenticationService {
                 if (jsonResponse.user && jsonResponse.token) {
                     // store user details and token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(jsonResponse));
+
                 }
             });
     }
