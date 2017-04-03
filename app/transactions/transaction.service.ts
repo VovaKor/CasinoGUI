@@ -1,48 +1,61 @@
 import { Injectable } from '@angular/core';
-import { Transaction } from './transaction';
+import { Transaction } from '../_models/transaction';
 import { Http, Headers } from "@angular/http";
-
+import {Router} from "@angular/router";
+import { Location } from '@angular/common'
 import 'rxjs/add/operator/toPromise';
+import {TransactionReply} from "./transaction-reply";
+import {Observable} from "rxjs/Observable";
+import {location} from "@angular/platform-browser/src/facade/browser";
+
 
 @Injectable()
 export class TransactionService {
     private baseUrl = 'http://localhost:8080/transactions';
 
-    constructor(private http: Http) {}
+    constructor(
+        private http: Http,
+        private router: Router,
+        private location: Location
+    ) {}
 
-    getAllTransactions(): Promise<Transaction[]> {
-        return this.http.get(this.baseUrl + '/all', this.getHeaders())
+    getAllTransactions(): Promise<TransactionReply> {
+        return this.http.get(this.baseUrl + '/all', {headers: this.getHeaders()})
             .toPromise()
-            .then(response => response.json().transactions as Transaction[])
-            .catch(this.handleError);
+            .then(response => response.json() as TransactionReply)
+            .catch((error: any) => this.handleError(error));
     }
 
-    getUsersTransactions(login: string): Promise<Transaction[]> {
+    getUsersTransactions(login: string): Promise<TransactionReply> {
         if (login === 'all') {
             return this.getAllTransactions();
         } else {
-            return this.http.get(this.baseUrl + '/byloginid/' + login, this.getHeaders())
+            return this.http.get(this.baseUrl + '/byloginid/' + login, {headers: this.getHeaders()})
                 .toPromise()
-                .then(response => response.json().transactions as Transaction[])
-                .catch(this.handleError);
+                .then(response => response.json() as TransactionReply)
+                .catch((error: any) => this.handleError(error));
         }
     }
 
-    addTransaction(transaction: Transaction): Promise<Transaction[]> {
-        return this.http.post(this.baseUrl + '/add', JSON.stringify(transaction) ,this.getHeaders())
+    addTransaction(transaction: Transaction): Promise<TransactionReply> {
+        return this.http.post(this.baseUrl + '/add', JSON.stringify({transaction : transaction}), {headers: this.getHeaders()})
             .toPromise()
-            .then(response => response.json().transactions as Transaction[])
-            .catch(this.handleError);
+            .then(response => response.json() as TransactionReply)
+            .catch((error: any) => this.handleError(error));
     }
 
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
+    private handleError(error: any): any {
+        alert("Error!\n" + error);
+        if(error.status == 401) {
+            this.router.navigate(['/login'], { queryParams: { returnUrl: this.location.path()}});
+        }
+        return null;
     }
 
-    private getHeaders(){
+    private getHeaders() : Headers{
         let headers = new Headers();
-        headers.append('Accept', 'application/json');
+        headers.append('X-Authorization', JSON.parse(localStorage.getItem('currentUser')).token);
+        headers.set('content-type', 'application/json');
         return headers;
     }
 }

@@ -13,13 +13,15 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import {NewsComponent} from "./news/index";
 import {UserDetailsComponent} from "./user-details/user-details.component";
+import { TransactionsModule } from './transactions/transactions.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        routing
+        routing,
+        TransactionsModule
     ],
     declarations: [
         AppComponent,
@@ -27,7 +29,7 @@ import {UserDetailsComponent} from "./user-details/user-details.component";
         LoginComponent,
         RegisterComponent,
         NewsComponent,
-        UserDetailsComponent
+        UserDetailsComponent,
     ],
     providers: [
         AuthGuard,

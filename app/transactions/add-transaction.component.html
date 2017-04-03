@@ -1,0 +1,18 @@
+<section>
+    <h2>Your balance: {{user.balance}}</h2>
+    <div id="transaction-form">
+        <label>Amount: </label>
+        <input type="number" min="0.01" step="0.01" max="user.balance" [(ngModel)]="amount">
+        <br>
+        <label>Info: </label>
+        <br>
+        <textarea maxlength="255" [(ngModel)]="info"></textarea>
+        <br>
+        <button (click)="onAccrue()" class="btn btn-primary">Accrue</button>
+        <button (click)="onTakeOff()" class="btn btn-primary">Take off</button>
+    </div>
+    <section *ngIf="success">
+        <h3>Transaction successfully completed</h3>
+    </section>
+</section>
+<button (click)="goBack()" class="btn btn-primary">Back</button>

@@ -1,8 +1,10 @@
 <section>
+    <h2>Your balance: {{user.balance}}</h2>
+    <a routerLink="../add">Finance Management</a>
     <section *ngIf="!transactions">
-        Loading roles!!! Retrieving data...
+        Loading transactions!!! Retrieving data...
     </section>
-    <ul>
+    <ul id="transactions-list">
         <li *ngFor="let transaction of transactions"
             (click)="onSelect(transaction)"
             [class.selected]="transaction === selectedTransaction">
@@ -17,4 +19,4 @@
         </li>
     </ul>
 </section>
-<button (click)="goBack()">Back</button>
+<button (click)="goBack()" class="btn btn-primary">Back</button>

@@ -7,3 +7,13 @@ li {
     padding: .3em;
     border-radius: 4px;
 }
+
+#transaction-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 80px;
+    width: 240px;
+}

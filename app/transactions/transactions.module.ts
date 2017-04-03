@@ -3,18 +3,20 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import { TransactionsRoutingModule } from "./transactions.routes";
-import { TransactionsComponent }  from "./transactions.component";
 import { TransactionService } from "./transaction.service";
+import { AddTransactionComponent } from './add-transaction.component'
+import {TransactionListComponent} from "./transaction-list.component";
 
 @NgModule({
     imports: [
         CommonModule,
         TransactionsRoutingModule,
         FormsModule,
-        HttpModule
+        HttpModule,
     ],
     declarations: [
-        TransactionsComponent
+        AddTransactionComponent,
+        TransactionListComponent
     ],
     providers: [ TransactionService ]
 })

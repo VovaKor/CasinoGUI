@@ -1,10 +1,13 @@
-import { TransactionsComponent } from './transactions.component'
 import {TransactionService} from "./transaction.service";
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
+import {AddTransactionComponent} from "./add-transaction.component";
+import {TransactionListComponent} from "./transaction-list.component";
 
 const routes: Routes = [
-    { path: ':login', component: TransactionsComponent }
+    { path: '', redirectTo: 'list', pathMatch: 'full' },
+    { path: 'list', component: TransactionListComponent },
+    { path: 'add', component: AddTransactionComponent }
 ];
 @NgModule({
     imports: [
@@ -17,4 +20,5 @@ const routes: Routes = [
         TransactionService
     ]
 })
+
 export class TransactionsRoutingModule { }

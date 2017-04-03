@@ -12,6 +12,11 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
     {path: 'user-details', component: UserDetailsComponent, canActivate: [AuthGuard]},
+    {
+        path: 'transactions',
+        loadChildren: 'app/transactions/transactions.module#TransactionsModule',
+        canActivate: [AuthGuard]
+    },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
