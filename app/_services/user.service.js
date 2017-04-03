@@ -17,7 +17,7 @@ var UserService = (function () {
         this.baseUrl = 'http://localhost:8080/';
     }
     UserService.prototype.getAll = function () {
-        return this.http.get('/api/users', this.jwt()).map(function (response) { return response.json(); });
+        return this.http.get(this.baseUrl + '/all', this.jwt()).map(function (response) { return response.json(); });
     };
     UserService.prototype.getById = function (id) {
         return this.http.get(this.baseUrl + 'users/' + id, this.jwt()).map(function (response) { return response.json(); });
@@ -26,7 +26,7 @@ var UserService = (function () {
         return this.http.post(this.baseUrl + 'register', user, this.jwt()).map(function (response) { return response.json(); });
     };
     UserService.prototype.delete = function (id) {
-        return this.http.delete('/api/users/' + id, this.jwt()).map(function (response) { return response.json(); });
+        return this.http.delete(this.baseUrl + 'users/' + id, this.jwt()).map(function (response) { return response.json(); });
     };
     // private helper methods
     UserService.prototype.jwt = function () {
