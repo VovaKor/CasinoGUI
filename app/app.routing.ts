@@ -12,7 +12,8 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     {
         path: 'automats',
-        loadChildren: 'app/automats/automats.module#AutomatsModule'
+        loadChildren: 'app/automats/automats.module#AutomatsModule',
+        canActivate: [AuthGuard]
     },
     { path: 'register', component: RegisterComponent },
     {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},

@@ -3,6 +3,6 @@
     loginId: string;
     password: string;
     email: string;
-    balance: string = '0.00';
+    balance: string = '100.00';
 
 }
