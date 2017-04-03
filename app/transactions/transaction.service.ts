@@ -5,8 +5,6 @@ import {Router} from "@angular/router";
 import { Location } from '@angular/common'
 import 'rxjs/add/operator/toPromise';
 import {TransactionReply} from "./transaction-reply";
-import {Observable} from "rxjs/Observable";
-import {location} from "@angular/platform-browser/src/facade/browser";
 
 
 @Injectable()
