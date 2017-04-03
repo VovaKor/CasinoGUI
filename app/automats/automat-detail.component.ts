@@ -18,19 +18,19 @@ import { Automat } from "./automat";
       <div *ngIf="automat.isWon">
           <h1>You WON!!!!</h1>
       </div>
-    <div *ngFor="let slot of automat.slots">
-      <label><span class="badge">{{ slot }}</span></label>
+    <ul class="automat" >
+      <li *ngFor="let slot of automat.slots"><label><span class="badge">{{ slot }}</span></label></li>
+    </ul>
       
-    </div>
       <p>
-          <button class="banner" (click)="play(automat.id)">Play</button>
+          <button class="banner btn-play" (click)="play(automat.id)">Play</button>
+          <button class="btn-back" (click)="gotoAutomats()">Back</button>
+
       </p>  
-    <p>
-      <button (click)="gotoAutomats()">Choose another automat</button>
-    </p>
   </div>
   `,
-  animations: [ slideInDownAnimation ]
+  animations: [ slideInDownAnimation ],
+  styleUrls: ['./app/automats/automat.component.css']
 })
 export class AutomatDetailComponent implements OnInit {
   @HostBinding('@routeAnimation') routeAnimation = true;

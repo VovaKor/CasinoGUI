@@ -17,8 +17,9 @@ import {Automat} from "./automat";
         <span class="badge">{{ automat.id }}</span> {{ automat.name }}
       </li>
     </ul>
-    
-  `
+  `,
+  styleUrls: ['./app/automats/automat.component.css']
+
 })
 export class AutomatListComponent implements OnInit {
   automats: Observable<Automat[]>;

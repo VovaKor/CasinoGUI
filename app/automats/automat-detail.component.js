@@ -53,8 +53,9 @@ __decorate([
 ], AutomatDetailComponent.prototype, "position", void 0);
 AutomatDetailComponent = __decorate([
     core_1.Component({
-        template: "\n  \n  <div *ngIf=\"automat\">\n    <h3>\"{{ automat.name }}\"</h3>\n    <div>\n        <h4>{{ automat.description }}</h4>\n    </div>\n      <div *ngIf=\"automat.isWon\">\n          <h1>You WON!!!!</h1>\n      </div>\n    <div *ngFor=\"let slot of automat.slots\">\n      <label><span class=\"badge\">{{ slot }}</span></label>\n      \n    </div>\n      <p>\n          <button class=\"banner\" (click)=\"play(automat.id)\">Play</button>\n      </p>  \n    <p>\n      <button (click)=\"gotoAutomats()\">Choose another automat</button>\n    </p>\n  </div>\n  ",
-        animations: [animations_1.slideInDownAnimation]
+        template: "\n  \n  <div *ngIf=\"automat\">\n    <h3>\"{{ automat.name }}\"</h3>\n    <div>\n        <h4>{{ automat.description }}</h4>\n    </div>\n      <div *ngIf=\"automat.isWon\">\n          <h1>You WON!!!!</h1>\n      </div>\n    <ul class=\"automat\" >\n      <li *ngFor=\"let slot of automat.slots\"><label><span class=\"badge\">{{ slot }}</span></label></li>\n    </ul>\n      \n      <p>\n          <button class=\"banner btn-play\" (click)=\"play(automat.id)\">Play</button>\n          <button class=\"btn-back\" (click)=\"gotoAutomats()\">Back</button>\n\n      </p>  \n  </div>\n  ",
+        animations: [animations_1.slideInDownAnimation],
+        styleUrls: ['./app/automats/automat.component.css']
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,

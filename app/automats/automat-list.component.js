@@ -31,7 +31,8 @@ var AutomatListComponent = (function () {
 }());
 AutomatListComponent = __decorate([
     core_1.Component({
-        template: "\n    <h2>AUTOMATS</h2>\n    <ul class=\"items\">\n      <li *ngFor=\"let automat of automats | async\" (click)=\"onSelect(automat)\">\n        <!--[class.selected]=\"isSelected(automat)\"-->\n        \n        <span class=\"badge\">{{ automat.id }}</span> {{ automat.name }}\n      </li>\n    </ul>\n    \n  "
+        template: "\n    <h2>AUTOMATS</h2>\n    <ul class=\"items\">\n      <li *ngFor=\"let automat of automats | async\" (click)=\"onSelect(automat)\">\n        <!--[class.selected]=\"isSelected(automat)\"-->\n        \n        <span class=\"badge\">{{ automat.id }}</span> {{ automat.name }}\n      </li>\n    </ul>\n  ",
+        styleUrls: ['./app/automats/automat.component.css']
     }),
     __metadata("design:paramtypes", [automat_service_1.AutomatService,
         router_1.ActivatedRoute,

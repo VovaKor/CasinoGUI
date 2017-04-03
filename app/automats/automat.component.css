@@ -1,0 +1,83 @@
+li {
+    margin: 1em 0 0.5em 0;
+    color: #343434;
+    font-weight: normal;
+    line-height: 40px;
+    font-family: 'Orienta', sans-serif;
+    cursor: pointer;
+    list-style-type: none;
+    font-size: 22px;
+
+}
+
+.automat > li {
+    display: inline;
+    margin-right: 4px;
+    padding: 2px;
+}
+
+.badge {
+    font-size: 26px;
+}
+
+h1 {
+    margin: 1em 0 0.5em 0;
+    color: #343434;
+    font-weight: normal;
+    line-height: 40px;
+    font-family: 'Orienta', sans-serif;
+
+}
+
+h2, h3 {
+    margin: 1em 0 0.5em 0;
+    color: #343434;
+    font-weight: normal;
+    font-family: 'Ultra', sans-serif;
+    font-size: 36px;
+    line-height: 42px;
+    text-transform: uppercase;
+    text-shadow: 0 2px white, 0 3px #777;
+}
+
+.btn-play {
+    font-weight: 100;
+    color: white;
+    text-decoration: none;
+    padding: .4em 1em calc(.3em + 3px);
+    border-radius: 3px;
+    background: rgb(64, 199, 129);
+    box-shadow: 0 -3px rgb(53, 167, 110) inset;
+    transition: 0.2s;
+}
+
+.btn-play:hover {
+    background: rgb(53, 167, 110);
+}
+
+.btn-play:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+}
+
+.btn-back {
+    font-weight: 100;
+    color: white;
+    text-decoration: none;
+    padding: .4em 1em calc(.3em + 3px);
+    border-radius: 3px;
+    background: rgb(227, 87, 95);
+    box-shadow: 0 -3px rgb(190, 81, 89) inset;
+    transition: 0.2s;
+}
+
+.btn-back:hover {
+    background: rgb(202, 47, 62)
+}
+
+.btn-back:active {
+    background: rgb(147, 46, 47);
+    box-shadow: 0 3px rgb(147, 48, 48) inset;
+}
+
+
