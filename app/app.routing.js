@@ -14,6 +14,11 @@ var appRoutes = [
         loadChildren: 'app/automats/automats.module#AutomatsModule',
         canActivate: [index_3.AuthGuard]
     },
+    {
+        path: 'roles',
+        loadChildren: 'app/roles/roles.module#RolesModule',
+        canActivate: [index_3.AuthGuard]
+    },
     { path: 'register', component: index_2.RegisterComponent },
     { path: 'news', component: index_4.NewsComponent, canActivate: [index_3.AuthGuard] },
     { path: 'user-details', component: index_5.UserDetailsComponent, canActivate: [index_3.AuthGuard] },

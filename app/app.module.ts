@@ -13,11 +13,13 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import {NewsComponent} from "./news/index";
 import {UserDetailsComponent} from "./user-details/user-details.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         HttpModule,
         routing

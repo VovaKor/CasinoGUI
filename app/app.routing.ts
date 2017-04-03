@@ -15,6 +15,11 @@ const appRoutes: Routes = [
         loadChildren: 'app/automats/automats.module#AutomatsModule',
         canActivate: [AuthGuard]
     },
+    {
+        path: 'roles',
+        loadChildren: 'app/roles/roles.module#RolesModule',
+        canActivate: [AuthGuard]
+    },
     { path: 'register', component: RegisterComponent },
     {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
     {path: 'user-details', component: UserDetailsComponent, canActivate: [AuthGuard]},

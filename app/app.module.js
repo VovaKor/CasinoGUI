@@ -19,6 +19,7 @@ var index_4 = require("./login/index");
 var index_5 = require("./register/index");
 var index_6 = require("./news/index");
 var user_details_component_1 = require("./user-details/user-details.component");
+var animations_1 = require("@angular/platform-browser/animations");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,6 +29,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
+            animations_1.BrowserAnimationsModule,
             forms_1.FormsModule,
             http_1.HttpModule,
             app_routing_1.routing
