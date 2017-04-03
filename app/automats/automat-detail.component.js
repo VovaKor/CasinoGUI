@@ -35,7 +35,7 @@ var AutomatDetailComponent = (function () {
             .subscribe(function (a) { return _this.automat = a; });
     };
     AutomatDetailComponent.prototype.gotoAutomats = function () {
-        this.router.navigate(['']);
+        this.router.navigate(['/automats']);
     };
     return AutomatDetailComponent;
 }());

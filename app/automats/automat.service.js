@@ -16,6 +16,7 @@ var AutomatService = (function () {
     function AutomatService(http) {
         this.http = http;
         this.baseUrl = 'http://localhost:8080/automats';
+        this.token = JSON.parse(localStorage.getItem('currentUser')).token;
     }
     AutomatService.prototype.getAutomats = function () {
         var automats$ = this.http
@@ -34,6 +35,7 @@ var AutomatService = (function () {
     AutomatService.prototype.getHeaders = function () {
         var headers = new http_1.Headers();
         headers.append('Accept', 'application/json');
+        headers.append('X-Authorization', this.token);
         return headers;
     };
     AutomatService.prototype.getGameResult = function (id) {

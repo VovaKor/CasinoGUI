@@ -6,6 +6,7 @@ import {Automat} from "./automat";
 @Injectable()
 export class AutomatService {
   private baseUrl: string = 'http://localhost:8080/automats';
+  private token: string = JSON.parse(localStorage.getItem('currentUser')).token;
 
   constructor(private http : Http){
   }
@@ -27,6 +28,7 @@ export class AutomatService {
   private getHeaders(){
         let headers = new Headers();
         headers.append('Accept', 'application/json');
+        headers.append('X-Authorization', this.token);
         return headers;
   }
 

@@ -56,6 +56,6 @@ export class AutomatDetailComponent implements OnInit {
         .subscribe(a => this.automat = a);
   }
   gotoAutomats() {
-   this.router.navigate(['']);
+   this.router.navigate(['/automats']);
   }
 }
