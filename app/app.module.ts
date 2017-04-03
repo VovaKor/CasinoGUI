@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/index';
 import {NewsComponent} from "./news/index";
 import {UserDetailsComponent} from "./user-details/user-details.component";
 
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -28,12 +29,14 @@ import {UserDetailsComponent} from "./user-details/user-details.component";
         RegisterComponent,
         NewsComponent,
         UserDetailsComponent
+
     ],
     providers: [
         AuthGuard,
         AlertService,
         AuthenticationService,
         UserService,
+
     ],
     bootstrap: [AppComponent]
 })
