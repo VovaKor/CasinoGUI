@@ -28,6 +28,7 @@ var AutomatDetailComponent = (function () {
         this.route.params
             .switchMap(function (params) { return _this.service.getAutomat(+params['id']); })
             .subscribe(function (automat) { return _this.automat = automat; });
+        this.user = JSON.parse(localStorage.getItem("currentUser")).user;
     };
     AutomatDetailComponent.prototype.play = function (id) {
         var _this = this;
@@ -35,7 +36,7 @@ var AutomatDetailComponent = (function () {
             .subscribe(function (a) {
             _this.automat = a;
             if (a.isWon === false) {
-                _this.user = JSON.parse(localStorage.getItem("currentUser")).user;
+                // this.user = JSON.parse(localStorage.getItem("currentUser")).user;
                 _this.user.balance = (+(_this.user.balance) - 1).toString();
                 var userTokenPair = JSON.parse(localStorage.getItem('currentUser'));
                 userTokenPair.user = _this.user;
@@ -45,6 +46,9 @@ var AutomatDetailComponent = (function () {
     };
     AutomatDetailComponent.prototype.gotoAutomats = function () {
         this.router.navigate(['/automats']);
+    };
+    AutomatDetailComponent.prototype.gotoTransactions = function () {
+        this.router.navigate(['/transactions']);
     };
     return AutomatDetailComponent;
 }());
@@ -62,7 +66,7 @@ __decorate([
 ], AutomatDetailComponent.prototype, "position", void 0);
 AutomatDetailComponent = __decorate([
     core_1.Component({
-        template: "\n  \n  <div *ngIf=\"automat\">\n    <h3>\"{{ automat.name }}\"</h3>\n    <div>\n        <h4>{{ automat.description }}</h4>\n    </div>\n      <div *ngIf=\"automat.isWon\">\n          <h1>You WON!!!!</h1>\n      </div>\n    <ul class=\"automat\" >\n      <li *ngFor=\"let slot of automat.slots\"><label><span class=\"badge\">{{ slot }}</span></label></li>\n    </ul>\n      \n      <p>\n          <button class=\"banner btn-play\" (click)=\"play(automat.id)\">Play</button>\n          <button class=\"btn-back\" (click)=\"gotoAutomats()\">Back</button>\n\n      </p>  \n  </div>\n  ",
+        template: "\n      <div *ngIf=\"user.balance < 1\">\n          <h1>Not enough balance to play!!!!</h1>\n          <h1>Please refill account</h1>\n\n          <p>\n              <button class=\"btn-back\" (click)=\"gotoTransactions()\">Refill account</button>\n          </p>\n      </div>   \n  <div *ngIf=\"automat\">\n    <h3>\"{{ automat.name }}\"</h3>\n    <div>\n        <h4>{{ automat.description }}</h4>\n    </div>\n      <div *ngIf=\"automat.isWon\">\n          <h1>You WON!!!!</h1>\n      </div>\n      \n    <ul class=\"automat\" >\n      <li *ngFor=\"let slot of automat.slots\"><label><span class=\"badge\">{{ slot }}</span></label></li>\n    </ul>\n      \n      <p>\n          <button class=\"banner btn-play\" (click)=\"play(automat.id)\">Play</button>\n          <button class=\"btn-back\" (click)=\"gotoAutomats()\">Back</button>\n\n      </p>  \n  </div>\n  \n  ",
         animations: [animations_1.slideInDownAnimation],
         styleUrls: ['./app/automats/automat.component.css']
     }),

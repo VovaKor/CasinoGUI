@@ -10,7 +10,14 @@ import {User} from "../_models/user";
 
 @Component({
   template: `
-  
+      <div *ngIf="user.balance < 1">
+          <h1>Not enough balance to play!!!!</h1>
+          <h1>Please refill account</h1>
+
+          <p>
+              <button class="btn-back" (click)="gotoTransactions()">Refill account</button>
+          </p>
+      </div>   
   <div *ngIf="automat">
     <h3>"{{ automat.name }}"</h3>
     <div>
@@ -19,6 +26,7 @@ import {User} from "../_models/user";
       <div *ngIf="automat.isWon">
           <h1>You WON!!!!</h1>
       </div>
+      
     <ul class="automat" >
       <li *ngFor="let slot of automat.slots"><label><span class="badge">{{ slot }}</span></label></li>
     </ul>
@@ -29,6 +37,7 @@ import {User} from "../_models/user";
 
       </p>  
   </div>
+  
   `,
   animations: [ slideInDownAnimation ],
   styleUrls: ['./app/automats/automat.component.css']
@@ -41,6 +50,7 @@ export class AutomatDetailComponent implements OnInit {
   automat: Automat;
   user: User;
 
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -49,25 +59,34 @@ export class AutomatDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-      // (+) converts string 'roleId' to a number
+      // (+) converts string 'id' to a number
       .switchMap((params: Params) => this.service.getAutomat(+params['id']))
-      .subscribe((automat: Automat) => this.automat = automat);
+      .subscribe(
+          (automat: Automat) => this.automat = automat
+      );
+      this.user = JSON.parse(localStorage.getItem("currentUser")).user;
   }
   play(id: number){
     this.service.getGameResult(id)
         .subscribe(a => {
           this.automat = a
+
           if(a.isWon === false)
           {
-            this.user = JSON.parse(localStorage.getItem("currentUser")).user;
+           // this.user = JSON.parse(localStorage.getItem("currentUser")).user;
             this.user.balance = (+(this.user.balance) - 1).toString();
             let userTokenPair = JSON.parse(localStorage.getItem('currentUser'));
             userTokenPair.user = this.user;
             localStorage.setItem("currentUser", JSON.stringify(userTokenPair));
           }
-        });
+
+        }
+        );
   }
   gotoAutomats() {
    this.router.navigate(['/automats']);
+  }
+  gotoTransactions(){
+    this.router.navigate(['/transactions']);
   }
 }
