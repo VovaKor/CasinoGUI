@@ -5,6 +5,7 @@ import {AddTransactionComponent} from "./add-transaction.component";
 import {TransactionListComponent} from "./transaction-list.component";
 
 const routes: Routes = [
+
     { path: '', redirectTo: 'list', pathMatch: 'full' },
     { path: 'list', component: TransactionListComponent },
     { path: 'add', component: AddTransactionComponent }

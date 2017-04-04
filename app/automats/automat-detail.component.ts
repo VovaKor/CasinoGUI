@@ -6,6 +6,7 @@ import { slideInDownAnimation } from '../animations';
 
 import { AutomatService }  from './automat.service';
 import { Automat } from "./automat";
+import {User} from "../_models/user";
 
 @Component({
   template: `
@@ -38,6 +39,7 @@ export class AutomatDetailComponent implements OnInit {
   @HostBinding('style.position')  position = 'absolute';
 
   automat: Automat;
+  user: User;
 
   constructor(
     private route: ActivatedRoute,
@@ -53,7 +55,17 @@ export class AutomatDetailComponent implements OnInit {
   }
   play(id: number){
     this.service.getGameResult(id)
-        .subscribe(a => this.automat = a);
+        .subscribe(a => {
+          this.automat = a
+          if(a.isWon === false)
+          {
+            this.user = JSON.parse(localStorage.getItem("currentUser")).user;
+            this.user.balance = (+(this.user.balance) - 1).toString();
+            let userTokenPair = JSON.parse(localStorage.getItem('currentUser'));
+            userTokenPair.user = this.user;
+            localStorage.setItem("currentUser", JSON.stringify(userTokenPair));
+          }
+        });
   }
   gotoAutomats() {
    this.router.navigate(['/automats']);

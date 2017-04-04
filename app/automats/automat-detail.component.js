@@ -32,7 +32,16 @@ var AutomatDetailComponent = (function () {
     AutomatDetailComponent.prototype.play = function (id) {
         var _this = this;
         this.service.getGameResult(id)
-            .subscribe(function (a) { return _this.automat = a; });
+            .subscribe(function (a) {
+            _this.automat = a;
+            if (a.isWon === false) {
+                _this.user = JSON.parse(localStorage.getItem("currentUser")).user;
+                _this.user.balance = (+(_this.user.balance) - 1).toString();
+                var userTokenPair = JSON.parse(localStorage.getItem('currentUser'));
+                userTokenPair.user = _this.user;
+                localStorage.setItem("currentUser", JSON.stringify(userTokenPair));
+            }
+        });
     };
     AutomatDetailComponent.prototype.gotoAutomats = function () {
         this.router.navigate(['/automats']);

@@ -29,7 +29,7 @@ const appRoutes: Routes = [
         canActivate: [AuthGuard]
     },
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: '/news'}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

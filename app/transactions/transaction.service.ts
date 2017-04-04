@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import { Location } from '@angular/common'
 import 'rxjs/add/operator/toPromise';
 import {TransactionReply} from "./transaction-reply";
-
+import {AlertService} from "../_services/index";
 
 @Injectable()
 export class TransactionService {
@@ -14,7 +14,8 @@ export class TransactionService {
     constructor(
         private http: Http,
         private router: Router,
-        private location: Location
+        private location: Location,
+        private alertService: AlertService
     ) {}
 
     getAllTransactions(): Promise<TransactionReply> {
@@ -43,7 +44,7 @@ export class TransactionService {
     }
 
     private handleError(error: any): any {
-        alert("Error!\n" + error);
+        this.alertService.error("Error!\n" + error);
         if(error.status == 401) {
             this.router.navigate(['/login'], { queryParams: { returnUrl: this.location.path()}});
         }

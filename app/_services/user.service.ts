@@ -26,6 +26,7 @@ export class UserService {
         return this.http.delete(this.baseUrl + 'users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
+
     // private helper methods
     private jwt() {
         // create authorization header with jwt token
